@@ -1,0 +1,10 @@
+.list-group-item form {
+	float: right;
+}
+.list-group-item:hover {
+	background-color: aliceblue;
+}
+.glyphicon {
+	font-size: 1.4em;
+	vertical-align: text-bottom;
+}

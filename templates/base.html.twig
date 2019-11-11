@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}{% endblock %} - TodoApp</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('css/todo.css') }}">
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+
+<body>
+    <header class="container">
+        <h1>TodoApp</h1>
+        <nav>
+            <ul class="nav nav-tabs">
+                <li {% block menu_about %}{% endblock %}>
+                    <a href="{{ path('homepage') }}">A propos</a>
+                </li>
+                <li {% block menu_todos %}{% endblock %}>
+                    <a href="{{ path('todo_list') }}"> Todos </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        {% block body %}{% endblock %}
+        <a href="{{ path('todo_reset') }}">Réinitialiser les tâches</a>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        const deleteURL = '{{ path("api_todo_delete") }}';
+    </script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    {% block javascripts %}{% endblock %}
+</body>
+
+</html>

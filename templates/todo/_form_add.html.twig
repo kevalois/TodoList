@@ -1,0 +1,11 @@
+<h3>Nouvelle tâche</h3>
+
+{# form_start = balise d'ouverture du form #}
+{{ form_start(form, {'action': path('todo_list'), 'attr': {'class': 'form-inline', 'novalidate': 'novalidate'}}) }}
+    {# fom_widget = rendu HTML du champ, ici form.task #}
+    {{ form_row(form.task, {'attr': {'placeholder': 'Intitulé de la tâche', 'class': 'form-control'}}) }}
+
+        {# La BP Symfony nous indique de mettre le submit comme ceci #}
+        <input type="submit" name="add" value="Ajouter" class="btn btn-primary">
+{# balise de fermeture du form #}
+{{ form_end(form) }}
